@@ -10,10 +10,6 @@ class Buyer(models.Model):
     def __str__(self):
         return self.name
 
-    # class Meta:
-    #     verbose_name = 'Книга'
-    #     verbose_name_plural = 'Книги'
-
 class Game(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название игры')
     cost = models.DecimalField(max_digits=11, null=True, decimal_places=2, verbose_name='Цена')
