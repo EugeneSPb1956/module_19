@@ -1,0 +1,31 @@
+{% extends 'first_task/menu.html' %}
+
+{% block pagename %}
+<h1>Корзина</h1>
+{% endblock %}
+
+{% block menu %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+{% if orders_cnt %}
+<h2>Заказы: {{ orders_cnt }}</h2>
+<ul>
+    {% for order in orders %}
+    <li><h3>{{ order.0 }}. Состояние: {{ order.2 }}.&nbsp;&nbsp;Цена: {{ order.1 }}. р</h3></li>
+    {% endfor %}
+</ul>
+
+<div style="text-indent: 20px;">
+<p>Сумма заказа к оплате: {{ total }} р
+    <button style="font-size: 20px;">Оплатить</button>
+</p>
+</div>
+
+{% else %}
+<h1>В вашей корзине пока что нет заказов.</h1>
+{% endif %}
+
+{% endblock %}
